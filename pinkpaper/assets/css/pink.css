@@ -1,0 +1,221 @@
+:root {
+  --bg: #fff6fb;
+  --bg-soft: #ffe5f1;
+  --paper: rgba(255, 255, 255, 0.78);
+  --paper-strong: rgba(255, 248, 252, 0.94);
+  --text: #3b2230;
+  --muted: #7f5970;
+  --accent: #ea4b97;
+  --accent-strong: #b12467;
+  --line: rgba(177, 36, 103, 0.16);
+  --shadow: 0 24px 80px rgba(109, 23, 62, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.pink-page {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 182, 211, 0.65), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 211, 229, 0.6), transparent 22%),
+    linear-gradient(180deg, #fff9fc 0%, #fff0f7 48%, #fff7fb 100%);
+}
+
+.page-shell {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.hero,
+.content {
+  animation: rise-in 700ms ease both;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 6vw, 56px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 249, 252, 0.96), rgba(255, 231, 241, 0.94)),
+    var(--paper-strong);
+  box-shadow: var(--shadow);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -80px -120px auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 75, 151, 0.22), rgba(234, 75, 151, 0));
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 10ch;
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(3rem, 9vw, 5.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  max-width: 34rem;
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.hero-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: rgba(255, 255, 255, 0.76);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.hero-nav a:hover,
+.hero-nav a:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(177, 36, 103, 0.28);
+}
+
+.content {
+  margin-top: 20px;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+.content p,
+.content li {
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.content h2,
+.content h3 {
+  color: #5d173c;
+  line-height: 1.15;
+}
+
+.content h2 {
+  margin: 2.8rem 0 1rem;
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  letter-spacing: -0.03em;
+}
+
+.content h3 {
+  margin: 2rem 0 0.8rem;
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
+}
+
+.content a {
+  color: var(--accent-strong);
+}
+
+.content strong {
+  color: #601437;
+}
+
+.content ul,
+.content ol {
+  padding-left: 1.35rem;
+}
+
+.content blockquote {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 227, 239, 0.95), rgba(255, 244, 249, 0.8));
+}
+
+.content blockquote p {
+  margin: 0;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100%, calc(100% - 20px));
+    padding-top: 10px;
+  }
+
+  .hero,
+  .content {
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero,
+  .content,
+  .hero-nav a {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,7 @@
+title: Розовый протокол
+description: Распределенная система социальной солидарности
+lang: ru
+theme: jekyll-theme-cayman
+markdown: kramdown
+kramdown:
+  input: GFM
